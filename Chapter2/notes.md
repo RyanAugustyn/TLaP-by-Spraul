@@ -17,3 +17,15 @@ Start with digits 10 and greater. For digits 0-9, max value is 18, so either dou
 Next work on reading individual digits, as will allow to type the identification number naturally when testing other parts of the problem. Because length is arbitrary and int might not hold, will have to read character by character.
 
 Using cin.get() because the basic extractor skips whitespace, which will cause issues later. But returns a char type, need to convert to an integer. The ASCII char for 0 is 48, and 0-9 is always 48 less than its char code. so sum=digit - '0'
+
+Now figuring out which digits to double, start with limiting length to six. Can reduce further so none of the digits is doubled. Once have that, knowing six numbers need to doulbe in positions 1, 3, and 5...or double if position is odd. So if position % 2 is 1, double.
+
+With that accomplished, modifying to 10 or 16 digits is trivial, but if number is odd, say 7, requires additional modification because with odd number of digits now doubling every digit starting second from right, first digit on left is no longer doubled. But first even numbers...
+
+Issue: when have you reached end of the number. If user types 'enter' what char is that (can vary by OS). Running the experiment (on my OS too), number is 10.
+
+So solved for even number, but how to know to double even/odd positions until end of the number? An analogy, write a program that reads 10 integers, after user may ask to display count of positive or negative numbers. You could keep a count of each. For our problem, keep track of a checksum both ways (my note: maybe divide the numbers and use a counter, at end decide which to sum up individually vs double?).
+
+Tip: generally better to take more steps than try to do too much at once. Larger number of steps isn't necessarily slower.
+
+Tracking State
