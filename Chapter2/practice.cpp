@@ -228,23 +228,135 @@ if (digitChar == 10) {
 
 
 //Read full comma line 
+// char digitChar;
+//     do {
+//         digitChar = cin.get();
+//         int number = (digitChar - '0');
+//         digitChar = cin.get();
+//         while ((digitChar != 10) && (digitChar != ',')) {
+//             number = number * 10 + (digitChar - '0');
+//             digitChar = cin.get();
+//         }
+//         cout << "Numbered entered: " << number << "\n";
+// } while (digitChar != 10);
+
+//Convert to uppercase
+// cout << "Enter a number 1-26: ";
+// int number;
+// cin >> number;
+// char outputCharacter;
+// outputCharacter = number + 'A' - 1;
+// cout << "Equivalent symbol: " << outputCharacter << "\n";
+
+
+//Punctuation table
+// cout << "Enter a number 1-8: ";
+// int number;
+// cin >> number;
+// char outputCharacter;
+// switch (number) {
+// case 1: outputCharacter = '!'; break;
+// case 2: outputCharacter = '?'; break;
+// case 3: outputCharacter = ','; break;
+// case 4: outputCharacter = '.'; break;
+// case 5: outputCharacter = ' '; break;
+// case 6: outputCharacter = ';'; break;
+// case 7: outputCharacter = '"'; break;
+// case 8: outputCharacter = '\''; break;
+// }
+// cout << "Equivalent symbol: " << outputCharacter << "\n";
+
+
+//Using mode switch with enumerated type
+// enum modeType {UPPERCASE, LOWERCASE, PUNCTUATION};
+// int number;
+// modeType mode = UPPERCASE;
+// cout << "Enter some numbers ending with -1: ";
+// do {
+//     cin >> number;
+//     cout << "Number read: " << number;
+//     switch (mode) {
+//         case UPPERCASE:
+//             number = number % 27;
+//             cout << ". Modulo 27: " << number << ". ";
+//             if (number == 0) {
+//                 cout << "Switch to LOWERCASE";
+//                 mode = LOWERCASE;
+//         }
+//         break;
+//         case LOWERCASE:
+//             number = number % 27;
+//             cout << ". Modulo 27: " << number << ". ";
+//             if (number == 0) {
+//                 cout << "Switch to PUNCTUATION";
+//                 mode = PUNCTUATION;
+//         }
+//         break;
+//         case PUNCTUATION:
+//             number = number % 9;
+//             cout << ". Modulo 9: " << number << ". ";
+//             if (number == 0) {
+//                 cout << "Switch to UPPERCASE";
+//                 mode = UPPERCASE;
+//             }
+//             break;
+//     }
+//     cout << "\n";
+// } while (number != -1);
+
+
+
+
+//Solved 'Decode a Message' problem
+char outputCharacter;
+enum modeType {UPPERCASE, LOWERCASE, PUNCTUATION};
+modeType mode = UPPERCASE;
 char digitChar;
-    do {
+do {
+    digitChar = cin.get();
+    int number = (digitChar - '0');
+    digitChar = cin.get();
+    while ((digitChar != 10) && (digitChar != ',')) {
+        number = number * 10 + (digitChar - '0');
         digitChar = cin.get();
-        int number = (digitChar - '0');
-        digitChar = cin.get();
-        while ((digitChar != 10) && (digitChar != ',')) {
-            number = number * 10 + (digitChar - '0');
-            digitChar = cin.get();
-        }
-        cout << "Numbered entered: " << number << "\n";
+    }
+    switch (mode) {
+        case UPPERCASE:
+            number = number % 27;
+            outputCharacter = number + 'A' - 1;
+            if (number == 0) {
+                mode = LOWERCASE;
+                continue;
+            }
+        break;
+        case LOWERCASE:
+            number = number % 27;
+            outputCharacter = number + 'a' - 1;
+            if (number == 0) {
+                mode = PUNCTUATION;
+                continue;
+            }
+        break;
+        case PUNCTUATION:
+            number = number % 9;
+            switch (number) {
+            case 1: outputCharacter = '!'; break;
+            case 2: outputCharacter = '?'; break;
+            case 3: outputCharacter = ','; break;
+            case 4: outputCharacter = '.'; break;
+            case 5: outputCharacter = ' '; break;
+            case 6: outputCharacter = ';'; break;
+            case 7: outputCharacter = '"'; break;
+            case 8: outputCharacter = '\''; break;
+            }
+            if (number == 0) {
+            mode = UPPERCASE;
+            continue;
+            }
+        break;
+    }
+    cout << outputCharacter;
 } while (digitChar != 10);
-
-
-
-
-
-
-
+cout << "\n";
 
 }

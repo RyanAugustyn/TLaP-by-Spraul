@@ -46,3 +46,11 @@ So create a simplified problem, so test a program with finding either 3 or 4 dig
 Now notice a pattern, can keep checking if reached the end, and if not multiply by 10 and add next number
 
 Once have a solution for reading numbers, now comma delimited line. Imaging a simple scenario of 101,22 [EndOfLine], need to check for EOL or comma, and place all that code in inside a loop that only stops for EOL
+
+Once have ability to loop through all numbers, now process. Converting numbers 1-26 to A-Z is oppositive of converting digit char to integer. If you add 'A' to number 5, get F which is off by one (we are adding number in range that starts in one). So 'A' - 1 is correct. Could look up ASCII for 'A', which is 65 and subtract 1, but first version is more readable.
+
+Can take above logic to lowerase with number + 'a' - 1. Punctuation will require brute force.
+
+To switch modes, can track with an enumeration variable. Rule of thumb: if a variable is only tracking state and has no inherent meaning to a particular value, enumeration is a good idea. So rather than (mode==2), we can do (mode==LOWERCASE)
+
+Now decide which order to build blocks of code up.
