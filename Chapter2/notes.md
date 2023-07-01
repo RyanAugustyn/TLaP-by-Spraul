@@ -44,3 +44,5 @@ However, this does not extend. First we reduce previous code to just two variabl
 So create a simplified problem, so test a program with finding either 3 or 4 digits. Might try Luhn solution of tracking each possibility. Constraining ourselves to only use one int and one char variable, realize can multiply by 10 before adding last digit.
 
 Now notice a pattern, can keep checking if reached the end, and if not multiply by 10 and add next number
+
+Once have a solution for reading numbers, now comma delimited line. Imaging a simple scenario of 101,22 [EndOfLine], need to check for EOL or comma, and place all that code in inside a loop that only stops for EOL

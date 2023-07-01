@@ -202,17 +202,47 @@ digitChar = cin.get();
 number += (digitChar - '0');
 digitChar = cin.get();
 if (digitChar == 10) {
-cout << "Numbered entered: " << number << "\n";
+    cout << "Numbered entered: " << number << "\n";
 } else {
-number = number * 10 + (digitChar - '0');
-digitChar = cin.get();
-if (digitChar == 10) {
-cout << "Numbered entered: " << number << "\n";
-} else {
-number = number * 10 + (digitChar - '0');
-cout << "Numbered entered: " << number << "\n";
+    number = number * 10 + (digitChar - '0');
+    digitChar = cin.get();
+    if (digitChar == 10) {
+        cout << "Numbered entered: " << number << "\n";
+    } else {
+        number = number * 10 + (digitChar - '0');
+        cout << "Numbered entered: " << number << "\n";
+    }
 }
-}
+
+
+//Write a loop to keep checking and multiply by 10 if not end char (10 on this OS)
+// cout << "Enter a number with as many digits as you like: ";
+// char digitChar = cin.get();
+// int number = (digitChar - '0');
+// digitChar = cin.get();
+// while(digitChar != 10) {
+//     number = number * 10 + (digitChar - '0');
+//     digitChar = cin.get();
+// }
+// cout << "Number entered: " << number << "\n";
+
+
+//Read full comma line 
+char digitChar;
+    do {
+        digitChar = cin.get();
+        int number = (digitChar - '0');
+        digitChar = cin.get();
+        while ((digitChar != 10) && (digitChar != ',')) {
+            number = number * 10 + (digitChar - '0');
+            digitChar = cin.get();
+        }
+        cout << "Numbered entered: " << number << "\n";
+} while (digitChar != 10);
+
+
+
+
 
 
 
