@@ -101,33 +101,120 @@ int main() {
 // }
 
 
-//Final result
-char digit;
-int oddLengthChecksum = 0;
-int evenLengthChecksum = 0;
-int position = 1;
-cout << "Enter a number: ";
-digit = cin.get();
-while(digit != 10){
-    if(position % 2 == 0) {
-        oddLengthChecksum += doubleDigitValue(digit - '0');
-        evenLengthChecksum += digit - '0'; 
-    }else{
-        oddLengthChecksum += digit - '0';
-        evenLengthChecksum += doubleDigitValue(digit - '0');
-    }
-    digit = cin.get();
-    position++;
-}
-int checksum; 
-//position -1 because last char is 10
-if ((position -1) % 2 == 0) checksum = evenLengthChecksum; 
-else checksum = oddLengthChecksum;
-cout << "Checksum is " << checksum << ". \n";
-if (checksum % 10 == 0) {
-    cout << "Checksum is divisible by 10. Valid \n";
+// //Final result
+// char digit;
+// int oddLengthChecksum = 0;
+// int evenLengthChecksum = 0;
+// int position = 1;
+// cout << "Enter a number: ";
+// digit = cin.get();
+// //check for end char
+// while(digit != 10){ 
+//     //track both possibilities to end
+//     if(position % 2 == 0) {
+//         oddLengthChecksum += doubleDigitValue(digit - '0');
+//         evenLengthChecksum += digit - '0'; 
+//     }else{
+//         oddLengthChecksum += digit - '0';
+//         evenLengthChecksum += doubleDigitValue(digit - '0');
+//     }
+//     digit = cin.get();
+//     position++;
+// }
+// int checksum; 
+// //position -1 because last char is 10
+// if ((position -1) % 2 == 0) checksum = evenLengthChecksum; 
+// else checksum = oddLengthChecksum;
+// cout << "Checksum is " << checksum << ". \n";
+// if (checksum % 10 == 0) {
+//     cout << "Checksum is divisible by 10. Valid \n";
+// } else {
+//     cout << "Checksum is not divisible by 10. Invalid \n";
+// }
+
+
+
+
+//Starting New problem
+
+// //Reading 2 char string and cast into int
+// cout << "Enter a two-digit number: ";
+// char digitChar1 = cin.get();
+// char digitChar2 = cin.get();
+// int digit1 = digitChar1 - '0';
+// int digit2 = digitChar2 - '0';
+// int overallNumber = digit1 * 10 + digit2;
+// cout << "That number as an integer: " << overallNumber << "\n";
+
+
+//Reduced 
+// cout << "Enter a two-digit number: ";
+// char digitChar = cin.get();
+// int overallNumber = (digitChar - '0') * 10;
+// digitChar = cin.get();
+// overallNumber += (digitChar - '0');
+// cout << "That number as an integer: " << overallNumber << "\n";
+
+
+//Problem checking between 3 or 4 digit number
+// cout << "Enter a three-digit or four-digit number: ";
+// char digitChar = cin.get();
+// int threeDigitNumber = (digitChar - '0') * 100;
+// int fourDigitNumber = (digitChar - '0') * 1000;
+// digitChar = cin.get();
+// threeDigitNumber += (digitChar - '0') * 10;
+// fourDigitNumber += (digitChar - '0') * 100;
+// digitChar = cin.get();
+// threeDigitNumber += (digitChar - '0');
+// fourDigitNumber += (digitChar - '0') * 10;
+// digitChar = cin.get();
+// if (digitChar == 10) {
+// cout << "Numbered entered: " << threeDigitNumber << "\n";
+// } else {
+// fourDigitNumber += (digitChar - '0');
+// cout << "Numbered entered: " << fourDigitNumber << "\n";
+//}
+
+//Constraied ourselves with only having one integer and one char, what now? 
+//Four digit number is 10 times 3 digit, so can just track one and multiply by 10
+// cout << "Enter a three-digit or four-digit number: ";
+// char digitChar = cin.get();
+// int number = (digitChar - '0') * 100;
+// digitChar = cin.get();
+// number += (digitChar - '0') * 10;
+// digitChar = cin.get();
+// number += (digitChar - '0');
+// digitChar = cin.get();
+// if (digitChar == 10) {
+// cout << "Numbered entered: " << number << "\n";
+// } else {
+// number = number * 10 + (digitChar - '0');
+// cout << "Numbered entered: " << number << "\n";
+// }
+
+//With 5 numbers start to see pattern
+cout << "Enter a number with three, four, or five digits: ";
+char digitChar = cin.get();
+int number = (digitChar - '0') * 100;
+digitChar = cin.get();
+number += (digitChar - '0') * 10;
+digitChar = cin.get();
+number += (digitChar - '0');
+digitChar = cin.get();
+if (digitChar == 10) {
+cout << "Numbered entered: " << number << "\n";
 } else {
-    cout << "Checksum is not divisible by 10. Invalid \n";
+number = number * 10 + (digitChar - '0');
+digitChar = cin.get();
+if (digitChar == 10) {
+cout << "Numbered entered: " << number << "\n";
+} else {
+number = number * 10 + (digitChar - '0');
+cout << "Numbered entered: " << number << "\n";
 }
+}
+
+
+
 
 }

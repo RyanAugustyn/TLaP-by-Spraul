@@ -29,3 +29,18 @@ So solved for even number, but how to know to double even/odd positions until en
 Tip: generally better to take more steps than try to do too much at once. Larger number of steps isn't necessarily slower.
 
 Tracking State
+
+How to solve the 'decode a message' problem on p41? Break into: - read chars one at a time (like previous problem) - Convert chars representing number into int
+-Perform mathematic operation based on mode and track the mode
+
+Chopped conversion of different modes into separate pieces: punctuation may be different and can't hurt
+
+REMEMBER to always store old code for later use
+
+From Luhn problem know how to read 0-9 and convert to integer. What about multidigit? Start with two digit numbers; if reading 35, you first have 3 and 5, to get the correct number is (3 \* 10) + 5.
+
+However, this does not extend. First we reduce previous code to just two variables. Hope to see a pattern with three digits, but encounter problem of needed to multiply leftmost by 100, but won't know number of digits until we reach the comma.
+
+So create a simplified problem, so test a program with finding either 3 or 4 digits. Might try Luhn solution of tracking each possibility. Constraining ourselves to only use one int and one char variable, realize can multiply by 10 before adding last digit.
+
+Now notice a pattern, can keep checking if reached the end, and if not multiply by 10 and add next number
