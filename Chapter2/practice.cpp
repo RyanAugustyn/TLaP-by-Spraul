@@ -193,26 +193,26 @@ int main() {
 // }
 
 //With 5 numbers start to see pattern
-cout << "Enter a number with three, four, or five digits: ";
-char digitChar = cin.get();
-int number = (digitChar - '0') * 100;
-digitChar = cin.get();
-number += (digitChar - '0') * 10;
-digitChar = cin.get();
-number += (digitChar - '0');
-digitChar = cin.get();
-if (digitChar == 10) {
-    cout << "Numbered entered: " << number << "\n";
-} else {
-    number = number * 10 + (digitChar - '0');
-    digitChar = cin.get();
-    if (digitChar == 10) {
-        cout << "Numbered entered: " << number << "\n";
-    } else {
-        number = number * 10 + (digitChar - '0');
-        cout << "Numbered entered: " << number << "\n";
-    }
-}
+// cout << "Enter a number with three, four, or five digits: ";
+// char digitChar = cin.get();
+// int number = (digitChar - '0') * 100;
+// digitChar = cin.get();
+// number += (digitChar - '0') * 10;
+// digitChar = cin.get();
+// number += (digitChar - '0');
+// digitChar = cin.get();
+// if (digitChar == 10) {
+//     cout << "Numbered entered: " << number << "\n";
+// } else {
+//     number = number * 10 + (digitChar - '0');
+//     digitChar = cin.get();
+//     if (digitChar == 10) {
+//         cout << "Numbered entered: " << number << "\n";
+//     } else {
+//         number = number * 10 + (digitChar - '0');
+//         cout << "Numbered entered: " << number << "\n";
+//     }
+// }
 
 
 //Write a loop to keep checking and multiply by 10 if not end char (10 on this OS)
