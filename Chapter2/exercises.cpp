@@ -12,6 +12,7 @@ int main() {
 //2-1
 //starting with 8 hashes, decrease by 2 for each row and add 1 space
 //Can't find way to use only cout << '#' and cout << '\n', need another cout for spacing
+
 // int rows = 4;
 // int spaces = 0;
 
@@ -53,31 +54,52 @@ int main() {
 //value goes out of range, reset everything and simply increment the left and inner spaces, 
 //plus the hashes for each line 
 
-int rows = 8;
-int leftSpaces = 0;
-int innerSpaces = 12;
-int numHashes = 1;
-int leftSpaceModifier = 1;
-int innerSpaceModifier = -4;
-int hashesModifier = 1;
+// int rows = 8;
+// int leftSpaces = 0;
+// int innerSpaces = 12;
+// int numHashes = 1;
+// int leftSpaceModifier = 1;
+// int innerSpaceModifier = -4;
+// int hashesModifier = 1;
 
-for(int i = 0; i < rows; i++){
-    if(innerSpaces < 0){
-        numHashes = 4;
-        innerSpaces = 0;
-        leftSpaces = 3;
-        leftSpaceModifier *= -1;
-        innerSpaceModifier *= -1;
-        hashesModifier *= -1;
-    }
-    cout << string(leftSpaces, ' ') << string(numHashes, '#') 
-    << string(innerSpaces, ' ') << string(numHashes, '#') << "\n";
-leftSpaces += leftSpaceModifier;
-innerSpaces += innerSpaceModifier;
-numHashes += hashesModifier;
+// for(int i = 0; i < rows; i++){
+//     if(innerSpaces < 0){
+//         numHashes = 4;
+//         innerSpaces = 0;
+//         leftSpaces = 3;
+//         leftSpaceModifier *= -1;
+//         innerSpaceModifier *= -1;
+//         hashesModifier *= -1;
+//     }
+//     cout << string(leftSpaces, ' ') << string(numHashes, '#') 
+//     << string(innerSpaces, ' ') << string(numHashes, '#') << "\n";
+// leftSpaces += leftSpaceModifier;
+// innerSpaces += innerSpaceModifier;
+// numHashes += hashesModifier;
+// }
 
 
-}
+//2-4 
+//Want to make a pattern that simply flows back and forth
+
+// int rows = 50;
+// int leftSpaces = 0;
+// int modifier = 1;
+// int numHashes = 1;
+
+// for(int i = 0; i < rows; i++){
+//     if(leftSpaces == 9) {
+//         modifier *= -1;
+//         leftSpaces = 8;
+//     }
+//     if(leftSpaces < 0){
+//         leftSpaces = 0;
+//         modifier *= -1;
+//     }
+//     cout << string(leftSpaces, ' ') << string(numHashes, '#') << std::endl;
+//     leftSpaces += modifier;
+// }
+
 
 
 
