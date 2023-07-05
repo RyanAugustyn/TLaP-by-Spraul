@@ -1,4 +1,4 @@
-Pure Puzzles
+Chapter 2: Pure Puzzles
 
 For problem 'print a half 5x5 triangle with hashes', one way to reduce would be starting by making a square. Then write one loop, then repeat that loop again.
 

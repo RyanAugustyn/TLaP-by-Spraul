@@ -1,3 +1,5 @@
+Chapter 1: Strategies for problem solving
+
 Problems include restraints, such as language, platform, performance. Problem solving is then writing an original program that completes particular task(s) within constraints.
 
 No Kobayashi Maru (from the Star Trek film where the problem is avoided)
