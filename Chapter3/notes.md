@@ -19,3 +19,14 @@ int _ intA = (int _)(voidA);
 int _ intB = (int _)(voidB);
 return *intA - *intB;
 }
+
+The above takes in two const void pointers, casts them to int pointers, and finally return a result that is positive(>), negative (<) or 0(=)
+
+With comparator function, qsort looks like:
+
+const int ARRAY_SIZE = 10
+int intArray[ARRAY_SIZE] = {87, 28, 100, 78, 84, 98, 75, 70, 81, 68};
+qsort(intArray, ARRAY_SIZE, sizeof(int), compareFunc)
+
+The four parameters are the array, its size, size of individual elements, and the function.
+Note: passing the function itself, not calling the function and passing that result (so function has no parameter list or parentheses)
