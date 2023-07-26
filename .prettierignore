@@ -1,0 +1,8 @@
+#Ignore defaults
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+
+#Ignore note taking to keep code formating: 
+notes.md

@@ -30,3 +30,18 @@ qsort(intArray, ARRAY_SIZE, sizeof(int), compareFunc)
 
 The four parameters are the array, its size, size of individual elements, and the function.
 Note: passing the function itself, not calling the function and passing that result (so function has no parameter list or parentheses)
+
+Example of insertion sort:
+
+The 2nd loop checks first if hitting beginning of array, 
+then if the previous value is larger and needs to be swapped
+
+int start = 0;
+int end = ARRAY_SIZE - 1;
+for (int i = start + 1; i <= end; i++) {
+    for (int j = i; j > start && intArray[j-1] > intArray[j]; j--) { 
+        int temp = intArray[j-1];
+        intArray[j-1] = intArray[j];
+        intArray[j] = temp;
+    }
+}
