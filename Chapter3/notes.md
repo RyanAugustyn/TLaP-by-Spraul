@@ -38,10 +38,74 @@ then if the previous value is larger and needs to be swapped
 
 int start = 0;
 int end = ARRAY_SIZE - 1;
-for (int i = start + 1; i <= end; i++) {
+for (int i = start + 1; i <= end; i++) { //if one element array, already in order
     for (int j = i; j > start && intArray[j-1] > intArray[j]; j--) { 
         int temp = intArray[j-1];
         intArray[j-1] = intArray[j];
         intArray[j] = temp;
     }
 }
+
+Final operation to keep in mind, looking at every array element before returning value (compute statistics) by looping through 
+
+
+Practice problem, determine mode of data set (if multiple exist, any may be chosen):
+
+Might try moving left to right, saving most seen value, but doesn't work because don't know when to declare the mode. 
+
+If order first, and see values next to each other. Some pseudocode: 
+
+int mostFrequent = ?;
+int highestFrequency = ?;
+int currentFrequency = 0;
+for (int i = 0; i < ARRAY_SIZE; i++) {
+    currentFrequency++;
+    if (surveyData[i] IS LAST OCCURRENCE OF A VALUE) {
+        if (currentFrequency > highestFrequency) {
+            highestFrequency = currentFrequency;
+            mostFrequent = surveyData[i];
+        }
+    currentFrequency = 0;
+    }
+}
+
+Thinking through...
+
+int mostFrequent;
+int highestFrequency = 0; 
+int currentFrequency = 0;
+for (int i - 0; i < ARRAY_SIZE; i++) {
+    currentFrequency++;
+    //if(surveyData[i] IS LAST OCCURANCE OF A VALUE) (leave in as comment for code)
+    if (i == ARRAY_SIZE - 1 || surveyData[i] != surveyData[i + 1]) {
+        if (currentFrequency > highestFrequency) {
+            highestFreqency = currentFrequency;
+            mostFrequent = surveyData[i];
+        }
+        currentFrequency = 0;
+    }
+}
+
+Need sorted, so add in qsort at beginning. 
+
+Refactoring: code works, but performance issues with huge arrays. To make it more efficient, can use a histogram (graph showing how often different values appear). To do so, store in a 10-element array, how often values 1-10 appear in survey data. Code to make histogram: 
+
+const int MAX_RESPONSE = 10;
+int histogram[MAX_RESPONSE];
+for (int i = 0; i < MAX_RESPONSE; i++) {
+    histogram[i] = 0;
+}
+for (int i = 0; i < ARRAY_SIZE; i++){
+    histogram[surveyData[i]-1]++;
+}
+
+Now we search for largest value in histogram array: 
+
+int mostFrequent = 0; //position of highest value
+for(int i = 1; i < MAX_RESPONSE; i++){
+    if (histogram[i] > histogram[mostFrequent]) mostFrequent = i;
+}
+mostFrequent++; //value is array + 1
+
+Remember, code that turns out to be a dead end is valuable for learning and may be usable down the road
+
