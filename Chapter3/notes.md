@@ -109,3 +109,74 @@ mostFrequent++; //value is array + 1
 
 Remember, code that turns out to be a dead end is valuable for learning and may be usable down the road
 
+
+
+Arrays of Fixed Data: in most array problems data comes from external (user, server, disk) sources, but can be useful to create arrays that never change values, such as replacing a whole block of control statements. 
+
+In the 'Decode a Message' problem, used a switch statement to translate decoded input (in range 1-8) to appropriate character. Instead of a bunch of long switch statements, can do the following: 
+
+const char punctuation[8] = {'!', '?', ',', '.', ' ', ';', '"', '\''};
+outputcharacter = punctuation[number - 1];
+
+Can go in reverse order to encode a message
+
+const int ARRAY_SIZE = 8;
+int targetPos = 0;
+while (punctuation[targetPos] != targetValue && targetPos < ARRAY_SIZE)
+    targetPos++;
+int punctuationCode = targetPos + 1; //offset correctly in array
+
+Imagine encoding business license costs, with 4 categories and thresholds for each
+
+const int NUM_CATEGORIES = 4;
+const double categoryThresholds[NUM_CATEGORIES] = 
+    {0.0, 50000.0, 150000.0, 500000.0};
+const double licenseCost[NUM_CATEGORIES] = 
+    {50.0, 200.0, 1000.0, 5000.0}; 
+category = 0;
+while (category < NUM_CATEGORIES && 
+    categoryThresholds[category] <= grossSales) {
+        category++;
+    }
+cost = licenseCost[category - 1];
+
+
+Non-scalary arrays: dealing with arrays of compound data (struct or class) will complicate code, but not necessarily thinking about processing. 
+
+Consider finding highest of set of student grades...
+
+struct student {
+    int grade;
+    int studentID;
+    string name;
+};
+
+const int ARRAY_SIZE = 10;
+student studentArray[ARRAY_SIZE] = {
+    {87, 10001, "Fred"},
+    {28, 10002, "Tom"},
+    {100, 10003, "Alistair"},
+    {78, 10004, "Sasha"},
+    {84, 10005, "Erin"},
+    {98, 10006, "Belinda"},
+    {75, 10007, "Leslie"},
+    {70, 10008, "Candy"},
+    {81, 10009, "Aretha"},
+    {68, 10010, "Veronica"}
+};
+
+int highest = studentArray[0].grade;
+for (int i = 1; i < ARRAY_SIZE; i++) {
+    if(studentArray[i].grade > highest) highest = studentArray[i].grade;
+}
+
+If looking for name, rather than finding and running again, keep track of name
+
+int highPosition = 0; 
+for (int i = 1; i < ARRAY_SIZE; i++) {
+    if (studentArray[i].grade > studentArray[highPosition].grade) {
+        highPosition = i;
+    }
+}
+
+
